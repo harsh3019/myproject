@@ -1,0 +1,898 @@
+﻿CSS TUTORIAL
+1.INTRODUCTION:-
+
+What is CSS?
+    • CSS stands for Cascading Style Sheets 
+    • CSS describes how HTML elements are to be displayed on screen, paper, or in other media 
+    • CSS saves a lot of work. It can control the layout of multiple web pages all at once 
+    • External stylesheets are stored in CSS files 
+
+CSS Syntax
+
+
+
+
+
+
+
+The selector points to the HTML element you want to style.
+The declaration block contains one or more declarations separated by semicolons.
+Each declaration includes a CSS property name and a value, separated by a colon.
+Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.
+EG:-In this example all <p> elements will be center-aligned, with a red text color:
+p {
+  color: red;
+  text-align: center;
+} 
+
+Example Explained
+    • p is a selector in CSS (it points to the HTML element you want to style: <p>). 
+    • color is a property, and red is the property value 
+    • text-align is a property, and center is the property value 
+
+
+
+
+
+
+
+
+CSS Selectors
+
+CSS selectors are used to "find" (or select) the HTML elements you want to style.
+
+Their are different types of selector which are as follows:-
+
+
+a) The CSS element Selector:-
+The element selector selects HTML elements based on the element name.
+Example
+Here, all <p> elements on the page will be center-aligned, with a red text color: 
+p {
+  text-align: center;
+  color: red;
+} 
+
+b) The CSS id Selector
+The id selector uses the id attribute of an HTML element to select a specific element.
+The id of an element is unique within a page, so the id selector is used to select one unique element!
+To select an element with a specific id, write a hash (#) character, followed by the id of the element.
+Example
+The CSS rule below will be applied to the HTML element with id="para1": 
+#para1 {
+  text-align: center;
+  color: red;
+} 
+
+
+
+
+
+
+
+
+
+
+
+c) The CSS class Selector
+The class selector selects HTML elements with a specific class attribute.
+To select elements with a specific class, write a period (.) character, followed by the class name.
+Example
+In this example all HTML elements with class="center" will be red and center-aligned: 
+.center {
+  text-align: center;
+  color: red;
+} 
+
+
+The CSS Universal Selector
+The universal selector (*) selects all HTML elements on the page.
+Example
+The CSS rule below will affect every HTML element on the page: 
+* {
+  text-align: center;
+  color: blue;
+}
+
+The CSS Grouping Selector
+The grouping selector selects all the HTML elements with the same style definitions.
+Look at the following CSS code (the h1, h2, and p elements have the same style definitions):
+h1 {
+  text-align: center;
+  color: red;
+}
+
+h2 {
+  text-align: center;
+  color: red;
+}
+
+p {
+  text-align: center;
+  color: red;
+} 
+
+It will be better to group the selectors, to minimize the code.
+To group selectors, separate each selector with a comma.
+Example
+In this example we have grouped the selectors from the code above: 
+h1, h2, p {
+  text-align: center;
+  color: red;
+} 
+
+We can provides three types of css in our websites they are as follows:
+1.External CSS
+With an external style sheet, you can change the look of an entire website by changing just one file!
+Each HTML page must include a reference to the external style sheet file inside the <link> element, inside the head section.
+Example
+External styles are defined within the <link> element, inside the <head> section of an HTML page:
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<h1>This is a headin g</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color:blue;text-align:center;">This is a heading</h1>
+<p style="color:red;">This is a paragraph.</p>
+
+</body>
+</html> 
+
+
+2.Inline CSS:-
+Inline CSS
+An inline style may be used to apply a unique style for a single element.
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+Example
+Inline styles are defined within the "style" attribute of the relevant element:
+
+
+3.Internal CSS
+An internal style sheet may be used if one single HTML page has a unique style.
+The internal style is defined inside the <style> element, inside the head section.
+Example
+Internal styles are defined within the <style> element, inside the <head> section of an HTML page:
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: maroon;
+  margin-left: 40px;
+} 
+</style>
+</head>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html> 
+
+
+
+
+FOR CSS COMMENTS
+For providing comments in css we can acheive this by using “/* */”
+
+CSS Backgrounds
+a) The CSS background properties are used to add background effects for elements.
+
+The background-color property specifies the background color of an element.
+Example
+The background color of a page is set like this:
+body {
+  background-color: lightblue;
+} 
+
+Opacity / Transparency
+The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+Example
+div {
+  background-color: green;
+  opacity: 0.3;
+} 
+
+
+CSS Background Image
+
+The background-image property specifies an image to use as the background of an element.
+By default, the image is repeated so it covers the entire element
+
+Set the background image for a page: 
+body {
+  background-image: url("paper.gif");
+} 
+
+
+
+
+
+
+
+
+CSS background-repeat
+By default, the background-image property repeats an image both horizontally and vertically.
+
+Example
+body {
+  background-image: url("gradient_bg.png");
+} 
+
+
+If the image above is repeated only horizontally (background-repeat: repeat-x;), the background will look better:
+Example
+body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+} 
+CSS background-repeat: no-repeat
+
+Showing the background image only once is also specified by the background-repeat property:
+Example
+Show the background image only once:
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+} 
+CSS background-position
+The background-position property is used to specify the position of the background image.
+Example
+Position the background image in the top-right corner: 
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+} 
+
+CSS Borders
+The border-style property specifies what kind of border to display.
+The following values are allowed:
+    • dotted - Defines a dotted border 
+    • dashed - Defines a dashed border 
+    • solid - Defines a solid border 
+    • double - Defines a double border 
+    • groove - Defines a 3D grooved border. The effect depends on the border-color value 
+    • ridge - Defines a 3D ridged border. The effect depends on the border-color value 
+    • inset - Defines a 3D inset border. The effect depends on the border-color value 
+    • outset - Defines a 3D outset border. The effect depends on the border-color value 
+    • none - Defines no border 
+    • hidden - Defines a hidden border 
+The border-style property can have from one to four values (for the top border, right border, bottom border, and the left border).
+
+The border-style property specifies what kind of border to display.
+The following values are allowed:
+    • dotted - Defines a dotted border 
+    • dashed - Defines a dashed border 
+    • solid - Defines a solid border 
+    • double - Defines a double border 
+    • groove - Defines a 3D grooved border. The effect depends on the border-color value 
+    • ridge - Defines a 3D ridged border. The effect depends on the border-color value 
+    • inset - Defines a 3D inset border. The effect depends on the border-color value 
+    • outset - Defines a 3D outset border. The effect depends on the border-color value 
+    • none - Defines no border 
+    • double - Defines a double border 
+    • groove - Defines a 3D grooved border. The effect depends on the border-color value 
+    • ridge - Defines a 3D ridged border. The effect depends on the border-color value 
+    • inset - Defines a 3D inset border. The effect depends on the border-color value 
+    • outset - Defines a 3D outset border. The effect depends on the border-color value 
+    • none - Defines no border 
+    • hidden - Defines a hidden border 
+
+
+
+
+CSS Border Width
+The border-width property specifies the width of the four borders.
+The width can be set as a specific size (in px, pt, cm, em, etc) or by using one of the three pre-defined values: thin, medium, or thick:
+Example
+Demonstration of the different border widths:
+p.one {
+  border-style: solid;
+  border-width: 5px;
+}
+
+p.two {
+  border-style: solid;
+  border-width: medium;
+}
+
+p.three {
+  border-style: dotted;
+  border-width: 2px;
+} 
+
+p.four {
+  border-style: dotted;
+  border-width: thick;
+} 
+Specific Side Widths
+The border-width property can have from one to four values (for the top border, right border, bottom border, and the left border):
+Example
+p.one {
+  border-style: solid;
+  border-width: 5px 20px; /* 5px top and bottom, 20px on the sides */
+}
+
+p.two {
+  border-style: solid;
+  border-width: 20px 5px; /* 20px top and bottom, 5px on the sides */
+}
+
+p.three {
+  border-style: solid;
+  border-width: 25px 10px 4px 35px; /* 25px top, 10px right, 4px bottom and 35px left */
+} 
+
+CSS Border Color
+CSS Border Color
+The border-color property is used to set the color of the four borders.
+The color can be set by:
+    • name - specify a color name, like "red" 
+    • HEX - specify a HEX value, like "#ff0000" 
+    • RGB - specify a RGB value, like "rgb(255,0,0)" 
+    • HSL - specify a HSL value, like "hsl(0, 100%, 50%)" 
+    • transparent 
+Note: If border-color is not set, it inherits the color of the element.
+Example
+Demonstration of the different border colors:
+p.one {
+  border-style: solid;
+  border-color: red;
+}
+
+p.two {
+  border-style: solid;
+  border-color: green;
+}
+
+p.three {
+  border-style: dotted;
+  border-color: blue;
+} 
+
+
+Specific Side Colors
+The border-color property can have from one to four values (for the top border, right border, bottom border, and the left border). 
+Example
+p.one {
+  border-style: solid;
+  border-color: red green blue yellow; /* red top, green right, blue bottom and yellow left */
+} 
+
+CSS Border - Shorthand Property
+Like you saw in the previous page, there are many properties to consider when dealing with borders.
+To shorten the code, it is also possible to specify all the individual border properties in one property.
+The border property is a shorthand property for the following individual border properties:
+    • border-width 
+    • border-style (required) 
+    • border-color 
+Example
+p {
+  border: 5px solid red;
+} 
+CSS Rounded Borders
+The border-radius property is used to add rounded borders to an element:
+Example
+p {
+  border: 2px solid red;
+  border-radius: 5px;
+} 
+
+
+
+
+
+CSS Margins
+The CSS margin properties are used to create space around elements, outside of any defined borders.
+With CSS, you have full control over the margins. There are properties for setting the margin for each side of an element (top, right, bottom, and left).
+
+Margin - Individual Sides
+CSS has properties for specifying the margin for each side of an element:
+    • margin-top 
+    • margin-right 
+    • margin-bottom 
+    • margin-left 
+All the margin properties can have the following values:
+    • auto - the browser calculates the margin 
+    • length - specifies a margin in px, pt, cm, etc. 
+    • % - specifies a margin in % of the width of the containing element 
+    • inherit - specifies that the margin should be inherited from the parent element 
+Tip: Negative values are allowed.
+Example
+Set different margins for all four sides of a <p> element:
+p {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+} 
+Margin - Shorthand Property
+    • margin: 25px 50px 75px 100px; 
+        ◦ top margin is 25px 
+        ◦ right margin is 50px 
+        ◦ bottom margin is 75px 
+        ◦ left margin is 100px
+
+
+If the margin property has three values:
+    • margin: 25px 50px 75px;
+        ◦ top margin is 25px 
+        ◦ right and left margins are 50px 
+        ◦ bottom margin is 75px
+
+If the margin property has two values:
+    • margin: 25px 50px;
+        ◦ top and bottom margins are 25px 
+        ◦ right and left margins are 50px
+Example
+Use the margin shorthand property with two values: 
+p {
+  margin: 25px 50px;
+} 
+
+If the margin property has one value:
+    • margin: 25px;
+        ◦ all four margins are 25px
+Example
+Use the margin shorthand property with one value: 
+p {
+  margin: 25px;
+} 
+
+
+
+CSS Padding
+Padding is used to create space around an element's content, inside of any defined borders.
+The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
+With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).
+
+Padding - Individual Sides
+CSS has properties for specifying the padding for each side of an element:
+    • padding-top 
+    • padding-right 
+    • padding-bottom 
+    • padding-left 
+All the padding properties can have the following values:
+    • length - specifies a padding in px, pt, cm, etc. 
+    • % - specifies a padding in % of the width of the containing element 
+    • inherit - specifies that the padding should be inherited from the parent element 
+Note: Negative values are not allowed.
+Padding and Element Width
+Here, the <div> element is given a width of 300px. However, the actual width of the <div> element will be 350px (300px + 25px of left padding + 25px of right padding):
+div {
+  width: 300px;
+  padding: 25px;
+} 
+To keep the width at 300px, no matter the amount of padding, you can use the box-sizing property. This causes the element to maintain its width; if you increase the padding, the available content space will decrease.
+
+Example
+Use the box-sizing property to keep the width at 300px, no matter the amount of padding:
+div {
+  width: 300px;
+  padding: 25px;
+  box-sizing: border-box;
+} 
+
+CSS Height and Width
+The CSS height and width properties are used to set the height and width of an element.
+The CSS max-width property is used to set the maximum width of an element.
+CSS Setting height and width
+The height and width properties are used to set the height and width of an element.
+The height and width properties do not include padding, borders, or margins. It sets the height/width of the area inside the padding, border, and margin of the element.
+
+CSS height and width Values
+The height and width properties may have the following values:
+    • auto - This is default. The browser calculates the height and width 
+    • length - Defines the height/width in px, cm etc. 
+    • % - Defines the height/width in percent of the containing block 
+    • initial - Sets the height/width to its default value 
+    • inherit - The height/width will be inherited from its parent value 
+
+
+
+
+CSS Outline
+An outline is a line drawn outside the element's border.
+CSS has the following outline properties:
+    • outline-style 
+    • outline-color 
+    • outline-width 
+    • outline-offset 
+    • outline 
+CSS Outline Style
+The outline-style property specifies the style of the outline, and can have one of the following values:
+    • dotted - Defines a dotted outline 
+    • dashed - Defines a dashed outline 
+    • solid - Defines a solid outline 
+    • double - Defines a double outline 
+    • groove - Defines a 3D grooved outline 
+    • ridge - Defines a 3D ridged outline 
+    • inset - Defines a 3D inset outline 
+    • outset - Defines a 3D outset outline 
+    • none - Defines no outline 
+    • hidden - Defines a hidden outline 
+The following example shows the different outline-style values:
+Example
+Demonstration of the different outline styles:
+p.dotted {outline-style: dotted;}
+p.dashed {outline-style: dashed;}
+p.solid {outline-style: solid;}
+p.double {outline-style: double;}
+p.groove {outline-style: groove;}
+p.ridge {outline-style: ridge;}
+p.inset {outline-style: inset;}
+p.outset {outline-style: outset;} 
+CSS Outline Width
+The outline-width property specifies the width of the outline, and can have one of the following values:
+    • thin (typically 1px) 
+    • medium (typically 3px) 
+    • thick (typically 5px) 
+    • A specific size (in px, pt, cm, em, etc) 
+p.ex1 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thin;
+}
+
+p.ex2 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: medium;
+}
+
+p.ex3 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: thick;
+}
+
+p.ex4 {
+  border: 1px solid black;
+  outline-style: solid;
+  outline-color: red;
+  outline-width: 4px;
+}
+CSS Outline Color
+The outline-color property is used to set the color of the outline.
+The color can be set by:
+    • name - specify a color name, like "red" 
+    • HEX - specify a hex value, like "#ff0000" 
+    • RGB - specify a RGB value, like "rgb(255,0,0)" 
+    • HSL - specify a HSL value, like "hsl(0, 100%, 50%)" 
+    • invert - performs a color inversion (which ensures that the outline is visible, regardless of color background) 
+CSS Outline - Shorthand property
+The outline property is a shorthand property for setting the following individual outline properties:
+    • outline-width 
+    • outline-style (required) 
+    • outline-color 
+The outline property is specified as one, two, or three values from the list above. The order of the values does not matter.
+p.ex1 {outline: dashed;}
+p.ex2 {outline: dotted red;}
+p.ex3 {outline: 5px solid yellow;}
+p.ex4 {outline: thick ridge pink;}
+CSS Outline Offset
+The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent.
+The following example specifies an outline 15px outside the border edge:
+p {
+  margin: 30px;
+  background: yellow;
+  border: 1px solid black;
+  outline: 1px solid red;
+  outline-offset: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+CSS Text
+Text Color
+The color property is used to set the color of the text. The color is specified by:
+    • a color name - like "red" 
+    • a HEX value - like "#ff0000" 
+    • an RGB value - like "rgb(255,0,0)" 
+Text Alignment
+The text-align property is used to set the horizontal alignment of a text.
+A text can be left or right aligned, centered, or justified.
+The following example shows center aligned, and left and right aligned text (left alignment is default if text direction is left-to-right, and right alignment is default if text direction is right-to-left):
+Example
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
+
+h3 {
+  text-align: right;
+} 
+Text Decoration
+The text-decoration property is used to set or remove decorations from text.
+The value text-decoration: none; is often used to remove underlines from links:
+Example
+a {
+  text-decoration: none;
+} 
+The other text-decoration values are used to decorate text:
+
+Example
+h1 {
+  text-decoration: overline;
+}
+
+h2 {
+  text-decoration: line-through; //make line through the text
+}
+
+h3 {
+  text-decoration: underline;
+} 
+
+Text Transformation
+The text-transform property is used to specify uppercase and lowercase letters in a text.
+It can be used to turn everything into uppercase or lowercase letters, or capitalize the first letter of each word:
+Example
+p.uppercase {
+  text-transform: uppercase;
+}
+
+p.lowercase {
+  text-transform: lowercase;
+}
+
+p.capitalize {
+  text-transform: capitalize;
+} 
+o/p:-This is some text.
+This is some text.
+This is some text.
+
+
+
+
+
+CSS Text Spacing
+Text Indentation
+The text-indent property is used to specify the indentation of the first line of a text:
+Example
+p {
+  text-indent: 50px;
+} 
+o/p:-            In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since. 'Whenever you feel like criticizing anyone,' he told me, 'just remember that all the people in this world haven't had the advantages that you've had.'
+it will give space at starting of word.
+
+Letter Spacing
+The letter-spacing property is used to specify the space between the characters in a text.
+The following example demonstrates how to increase or decrease the space between characters:
+Example
+h1 {
+  letter-spacing: 3px;
+}
+
+h2 {
+  letter-spacing: -3px;
+} 
+o/p:-
+This is heading 1
+This is heading 2
+
+
+
+
+
+
+
+Line Height
+The line-height property is used to specify the space between lines:
+p.small {
+  line-height: 0.8;
+}
+
+p.big {
+  line-height: 1.8;
+}
+o/p:-
+This is a paragraph with a standard line-height.
+The default line height in most browsers is about 110% to 120%.
+This is a paragraph with a smaller line-height.
+This is a paragraph with a smaller line-height.
+This is a paragraph with a bigger line-height.
+This is a paragraph with a bigger line-height.
+Word Spacing
+The word-spacing property is used to specify the space between the words in a text.
+The following example demonstrates how to increase or decrease the space between words:
+Example
+h1 {
+  word-spacing: 10px;
+}
+
+h2 {
+  word-spacing: -5px;
+} 
+Text Shadow
+The text-shadow property adds shadow to text.
+ its simplest use, you only specify the horizontal shadow (2px) and the vertical shadow (2px):
+InExample
+h1 {
+  text-shadow: 2px 2px red;
+} 
+
+CSS ICONS:-The simplest way to add an icon to your HTML page, is with an icon library, such as Font Awesome.
+Add the name of the specified icon class to any inline HTML element (like <i> or <span>).
+All the icons in the icon libraries below, are scalable vectors that can be customized with CSS (size, color, shadow, etc.)
+EG:<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+CSS LINKS:-Links can be styled with any CSS property (e.g. color, font-family, background, etc.).
+Example
+a {
+  color: hotpink;
+} 
+The four links states are: 
+    • a:link - a normal, unvisited link 
+    • a:visited - a link the user has visited 
+    • a:hover - a link when the user mouses over it 
+    • a:active - a link the moment it is clicked 
+Example
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+
+
+When setting the style for several link states, there are some order rules:
+    • a:hover MUST come after a:link and a:visited 
+    • a:active MUST come after a:hover 
+This example demonstrates how to add other styles to hyperlinks:
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+a.one:link {color:#ff0000;}
+a.one:visited {color:#0000ff;}
+a.one:hover {color:#ffcc00;}
+
+a.two:link {color:#ff0000;}
+a.two:visited {color:#0000ff;}
+a.two:hover {font-size:150%;}
+
+a.three:link {color:#ff0000;}
+a.three:visited {color:#0000ff;}
+a.three:hover {background:#66ff66;}
+
+a.four:link {color:#ff0000;}
+a.four:visited {color:#0000ff;}
+a.four:hover {font-family:monospace;}
+
+a.five:link {color:#ff0000;text-decoration:none;}
+a.five:visited {color:#0000ff;text-decoration:none;}
+a.five:hover {text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<p>Mouse over the links and watch them change layout:</p>
+
+<p><b><a class="one" href="default.asp" target="_blank">This link changes color</a></b></p>
+<p><b><a class="two" href="default.asp" target="_blank">This link changes font-size</a></b></p>
+<p><b><a class="three" href="default.asp" target="_blank">This link changes background-color</a></b></p>
+<p><b><a class="four" href="default.asp" target="_blank">This link changes font-family</a></b></p>
+<p><b><a class="five" href="default.asp" target="_blank">This link changes text-decoration</a></b></p>
+
+</body>
+</html>
+This example demonstrates the different types of cursors (can be useful for links):
+<span style="cursor: auto">auto</span><br>
+<span style="cursor: crosshair">crosshair</span><br>
+<span style="cursor: default">default</span><br>
+<span style="cursor: e-resize">e-resize</span><br>
+<span style="cursor: help">help</span><br>
+<span style="cursor: move">move</span><br>
+<span style="cursor: n-resize">n-resize</span><br>
+<span style="cursor: ne-resize">ne-resize</span><br>
+<span style="cursor: nw-resize">nw-resize</span><br>
+<span style="cursor: pointer">pointer</span><br>
+<span style="cursor: progress">progress</span><br>
+<span style="cursor: s-resize">s-resize</span><br>
+<span style="cursor: se-resize">se-resize</span><br>
+<span style="cursor: sw-resize">sw-resize</span><br>
+<span style="cursor: text">text</span><br>
+<span style="cursor: w-resize">w-resize</span><br>
+<span style="cursor: wait">wait</span> 
+
+
+
+
+
+CSS LIST:-there are two types of list one is unorder list and second is order list.
+We can change the shape of the give order list for that we have to use
+The list-style-type property specifies the type of list item marker.
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul.a {
+  list-style-type: circle;
+}
+ul.b {
+  list-style-type: square;
+}
+ol.c {
+  list-style-type: upper-roman;
+}
+ol.d {
+  list-style-type: lower-alpha;
+}
+</style>
+</head>
+<body>
+<h2>Lists</h2>
+<p>Example of unordered lists:</p>
+<ul class="a">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ul>
+
+<ul class="b">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ul>
+<p>Example of ordered lists:</p>
+<ol class="c">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>
+<ol class="d">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>
+</body>
+</html>
+
+
+MAX WIDTH AND NORMAL WIDTH :-
+MAX WIDTH IS RESPONSIVE INNATURE IT ADJUST ACCORDING TO THE SCREEN WHEREAS WIDTH IS NOT RESPOSNIVE IT WILL NOT ADJUST .THAT’S WHY WE SHOULD USE MAINLY MAX-WIDTH IN PROJECT

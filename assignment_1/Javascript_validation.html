@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container" style="border:thin black solid;padding: 5px;margin-top: 10px;">
+  <h2 class="text-center bg-dark text-white">Form Validation Using Javascript</h2>
+  
+  <form onsubmit="return validation()">
+    <div class="row"> 
+      <div class="col-sm-6">
+      	<label for="FirstName">First Name</label>
+        <input type="text" class="form-control" id="firstname"  name="">
+        <span id="chkfirst" class="text-danger font-weight-bold"></span>
+      </div>
+      <div class="col-sm-6">
+      	<label for="LastName">Last Name</label>
+        <input type="text" class="form-control"  name="" id="lastname">
+        <span id="chklast" class="text-danger font-weight-bold"></span>
+      </div>
+      <br><br>
+     <div class="col-sm-6">
+     	<label for="phone">Phone</label>
+    <input type="text" name="" class="form-control"c name="" id="phone">
+    <span id="chkphone" class="text-danger font-weight-bold"></span>
+     </div>
+     <div class="col-sm-6">
+     	<label for="office">Office No</label>
+     	<input type="text" name="" class="form-control" id="office">
+     	<span id="chkoffice" class="text-danger font-weight-bold"></span>
+     </div>
+     <br><br>
+     <div class="col-sm-6">
+     	<label for="email">Email</label>
+    <input type="text" name="" class="form-control" id="email">
+    <span id="chkemail" class="text-danger font-weight-bold"></span>
+     </div>
+     <div class="col-sm-6">
+     	<label for="password">Password</label>
+     	<input type="text" name="" class="form-control" id="Password">
+     	<span id="chkpsw" class="text-danger font-weight-bold"></span>
+     </div>
+<br><br>
+     <div class="col-sm-6">
+     	<label for="confirm_password">Confirm Password</label>
+    <input type="text" name="" class="form-control" id="confirmpsw">
+    <span id="chkconfirm" class="text-danger font-weight-bold"></span>
+     </div>
+     <div class="col-sm-6">
+     	<label for="BirthDate">BirthDate</label>
+     	<input type="Date" name="" class="form-control" id="dob">
+     	<span id="checkdate" class="text-danger font-weight-bold"></span>
+     </div>
+<br><br>
+     <div class="col-sm-6">
+     	<label for="Age">Age</label>
+    <input type="text" name="" class="form-control"   id="inp-age" readonly="">
+     </div>
+     <div class="col-sm-6">
+     	<label for="Gender">Gender</label><br>
+     <div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio" value="M">Male
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio" value="F">Female 
+      </label>
+
+</div>
+<span id="chkradio" class="text-danger font-weight-bold"></span>
+</div>
+<br><br><br>
+     <div class="col-sm-6">
+     	<!-- <label for="email">Email</label>
+        <input type="checkbox" class="form-check-input" value="">Option 1
+         <input type="checkbox" class="form-check-input" value="">Option 2
+     </div>-->    
+<label for="Interest">Interest</label><br>
+<div class="form-check-inline">
+<label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  name="check1">Biking
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  name="check1">Reading
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  name="check1">Playing
+  </label>
+</div>
+<span id="chkbox" class="text-danger font-weight-bold"></span>
+</div>
+
+      <div class="col-sm-6">
+     	<label for="about">About You</label>
+     	<textarea name="" class="form-control" id="aboutyou"></textarea>
+     	<span id="chkabout" class="text-danger font-weight-bold"></span>
+     </div>
+
+ <div class="col-sm-12">
+  <center><button class="btn btn-primary mt-3">Submit</button></center>
+</div>
+  </form>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function validation()
+	{
+		var firstname = document.getElementById('firstname').value;
+		var lastname = document.getElementById('lastname').value;
+		var phone = document.getElementById('phone').value;
+		var office = document.getElementById('office').value;
+		var email = document.getElementById('email').value;
+		var password = document.getElementById('Password').value;
+		var confirmpsw = document.getElementById('confirmpsw').value;
+		var about = document.getElementById('aboutyou').value;
+    var BirthDate = document.getElementById('dob').value;
+    var dob = new Date(BirthDate);
+ //   console.log(BirthDate);
+		 
+
+
+
+		var checkfirst = /^[A-Za-z. ]{3,30}$/ ;
+		var checklast  = /^[A-Za-z. ]{3,30}$/ ;
+		var checkpsw   = /^(?=.*[0-9])(?=.*[!@#$%&*])[a-zA-z0-9!@#$%^&*]{8,12}$/ ;
+        var checkemail    = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/ ;
+        var checkphone = /^[789][0-9]{9}$/ ;
+        var checkoffice = /^[0-9]{2,10}$/ ;
+        var checkabout = /^[A-Za-z. ]{3,30}$/ ;
+
+
+        /*CHECK FOR FIRST NAME */
+        if(checkfirst.test(firstname)){
+        	document.getElementById('chkfirst').innerHTML = " ";
+        }
+        else{
+              document.getElementById('chkfirst').innerHTML = " ****Firstname is invalid*****";
+              return false;
+        }
+         
+          /*CHECK FOR LAST NAME */
+        if(checklast.test(lastname)){
+        	document.getElementById('chklast').innerHTML = " ";
+        }
+        else{
+              document.getElementById('chklast').innerHTML = " **Lastname is invalid**";
+              return false;
+        }
+
+
+         /*CHECK FOR PHONE NUMBER */
+       if(checkphone.test(phone)){
+       	document.getElementById('chkphone').innerHTML = " ";
+        }
+        else{
+              document.getElementById('chkphone').innerHTML = " **Phone Number invalid**";
+              return false;
+        }       
+
+         /*CHECK FOR OFFICE NUMBER */
+        if(checkoffice.test(office)){
+       	document.getElementById('chkoffice').innerHTML = " ";
+        }
+        else{
+              document.getElementById('chkoffice').innerHTML = " ****Office must be No.*****";
+              return false;
+        }      
+
+         /*CHECK FOR EMAIL */
+        if(checkemail.test(email)){
+       	document.getElementById('chkemail').innerHTML = " ";
+        }
+        else{
+              document.getElementById('chkemail').innerHTML = " ****Email invalid*****";
+              return false;
+        }  
+
+         /*CHECK FOR PASSWORD */
+        if(checkpsw.test(password)){
+       	document.getElementById('chkpsw').innerHTML = " ";
+        }
+        else{
+              document.getElementById('chkpsw').innerHTML = " ****Password invalid*****";
+              return false;
+        }      
+
+           /*CHECK FOR CONFIRM PASSWORD */
+             if(confirmpsw.match(password))  {
+        	document.getElementById('chkconfirm').innerHTML = " ";
+        }
+        	else{
+        		document.getElementById('chkconfirm').innerHTML = "**Password Not Match**";
+        		return false;
+        	}
+
+         /*BirthDate and Age validation*/
+        if(BirthDate==null || BirthDate=='') {
+      document.getElementById("checkdate").innerHTML = "**Choose a date please!";  
+      return false; 
+      } else {
+     
+     //calculate month difference from current date in time
+     var month_diff = Date.now() - dob.getTime();
+    
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff); 
+    
+    //extract year from date    
+    var year = age_dt.getUTCFullYear();
+    
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970);
+    
+    //display the calculated age
+   document.getElementById("inp-age").value =  
+             "Age is: " + age + " years. ";
+    }
+
+       /*CHECK FOR GENDER */
+     var gender = document.getElementsByName('optradio');
+        var genValue = false;
+
+        for(var i=0; i<gender.length;i++){
+            if(gender[i].checked == true){
+                genValue = true;    
+            }
+        }
+        if(!genValue){
+            document.getElementById('chkradio').innerHTML = " please select gender";
+            return false;
+        }
+    
+         /*CHECK FOR INTEREST */
+        var interest = document.getElementsByName('check1');
+        var intValue = false;
+
+        for(var i=0; i<interest.length;i++)
+        {
+          if(interest[i].checked == true){
+            intValue = true;
+          }
+        }
+        if(!intValue){
+          document.getElementById('chkbox').innerHTML = "please select Interest";
+          return false;
+        }
+
+          /*CHECK FOR ABOUT */
+
+        if(about=="null" || about=="")
+        {
+          document.getElementById('chkabout').innerHTML = "Please Fill About";
+          return false;
+        }
+        else{
+          document.getElementById('chkabout').innerHTML = " ";
+        }
+      
+ } 
+</script>  

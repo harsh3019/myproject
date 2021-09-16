@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container" style="border:thin black solid;padding: 5px;margin-top: 10px;">
+  <h2 class="text-center bg-dark text-white">Form Validation Using Jquery</h2>
+  
+  <form>
+    <div class="row"> 
+      <div class="col-sm-6">
+      	<label for="FirstName">First Name</label>
+        <input type="text" class="form-control" id="firstname"  name="" autocomplete="off">
+        <div id="first_chk"></div>
+      </div>
+      <div class="col-sm-6">
+      	<label for="LastName">Last Name</label>
+        <input type="text" class="form-control"  name="" id="lastname">
+        <div id="chklast"></div>
+      </div>
+      <br><br>
+     <div class="col-sm-6">
+     	<label for="phone">Phone</label>
+    <input type="text" name="" class="form-control" name="" id="phone">
+    <div id="chkphone"></div>
+     </div>
+     <div class="col-sm-6">
+     	<label for="office">Office No</label>
+     	<input type="text" name="" class="form-control" id="office">
+     	<div id="chkoffice"></div>
+     </div>
+     <br><br>
+     <div class="col-sm-6">
+     	<label for="email">Email</label>
+    <input type="text" name="" class="form-control" id="email">
+    <div id="chkemail"></div>
+     </div>
+     <div class="col-sm-6">
+     	<label for="password">Password</label>
+     	<input type="text" name="" class="form-control" id="Password">
+     	<div id="chkpsw"></div>
+     </div>
+<br><br>
+     <div class="col-sm-6">
+     	<label for="confirm_password">Confirm Password</label>
+    <input type="text" name="" class="form-control" id="confirmpsw">
+    <div id="chkconfirm"></div>
+     </div>
+     <div class="col-sm-6">
+     	<label for="BirthDate">BirthDate</label>
+     	<input type="Date" name="" class="form-control" id="dob">
+     	<div id="checkdate"></div>
+     </div>
+<br><br>
+     <div class="col-sm-6">
+     	<label for="Age">Age</label>
+    <input type="text" name="" class="form-control"   id="inp-age" readonly="">
+     </div>
+     <div class="col-sm-6">
+     	<label for="Gender">Gender</label><br>
+     <div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio" value="M" id="optradio">Male
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="radio" class="form-check-input" name="optradio" value="F" id="optradio">Female 
+      </label>
+
+</div>
+<div id="chkradio"></div>
+</div>
+<br><br><br>
+     <div class="col-sm-6">
+     	<!-- <label for="email">Email</label>
+        <input type="checkbox" class="form-check-input" value="">Option 1
+         <input type="checkbox" class="form-check-input" value="">Option 2
+     </div>-->    
+<label for="Interest">Interest</label><br>
+<div class="form-check-inline">
+<label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  name="check1">Biking
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  name="check1">Reading
+  </label>
+</div>
+<div class="form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input"  name="check1">Playing
+  </label>
+</div>
+<div id="chkbox"></div>
+</div>
+
+      <div class="col-sm-6">
+     	<label for="about">About You</label>
+     	<textarea name="" class="form-control" id="aboutyou"></textarea>
+     	<div id="chkabout"></div>
+     </div>
+
+ <div class="col-sm-12">
+  <center><button class="btn btn-primary mt-3" id="submit">Submit</button></center>
+</div>
+  </form>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+   $("#submit").click(function(){
+   var user = $('#firstname').val();
+   var last = $('#lastname').val();
+   var pho =  $('#phone').val();
+   var off =  $('#office').val();
+   var ema =  $('#email').val();
+   var psw =  $('#Password').val();
+   var cpsw = $('#confirmpsw').val();
+   var gen = $('#optradio').val();
+   var abt = $('#aboutyou').val();
+
+   var check_text  = /^[A-Za-z. ]{3,30}$/;
+   var checkphone = /^[789][0-9]{9}$/ ;
+   var checkoffice = /^[0-9]{2,10}$/ ;
+   var checkemail    = /^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/ ;
+   var checkpsw   = /^(?=.*[0-9])(?=.*[!@#$%&*])[a-zA-z0-9!@#$%^&*]{8,12}$/ ;
+
+   if(user == "")
+   {
+    $('#first_chk').html('***FirstName Compulsory**');
+    $('#first_chk').css('color','red');
+    return false;
+   }
+    else if(!check_text.test(user))
+   {
+     $('#first_chk').html('**Please fill Alphabet only**');
+     $('#first_chk').css('color','red');
+     return false;
+   }
+   
+   if(last == "")
+   {
+    $('#chklast').html('***Last Name Compulsory**');
+    $('#chklast').css('color','red');
+    return false;
+   }
+    else if(!check_text.test(last))
+   {
+     $('#chklast').html('**Please fill Alphabet only**');
+     $('#chklast').css('color','red');
+     return false;
+   }
+
+
+   if(pho == "")
+   {
+    $('#chkphone').html('**Phone Number Compulsory**');
+    $('#chkphone').css('color','red');
+    return false;
+   }
+    else if(!checkphone.test(pho))
+   {
+     $('#chkphone').html('**Please Fill Correct Phone Number**');
+     $('#chkphone').css('color','red');
+     return false;
+   }
+
+   if(off == "")
+   {
+   $('#chkoffice').html('**Office Number Compulsory**');
+    $('#chkoffice').css('color','red');
+    return false;
+   }
+    else if(!checkoffice.test(off))
+   {
+     $('#chkoffice').html('**Please Fill Correct Office Number**');
+     $('#chkoffice').css('color','red');
+     return false;
+   }
+
+   if(ema == "")
+   {
+   $('#chkemail').html('**Email Compulsory**');
+    $('#chkemail').css('color','red');
+    return false;
+   }
+    else if(!checkemail.test(ema))
+   {
+     $('#chkemail').html('**Email Invalid**');
+     $('#chkemail').css('color','red');
+     return false;
+   }
+   
+   if(psw == "")
+   {
+   $('#chkpsw').html('**Password Compulsory**');
+    $('#chkpsw').css('color','red');
+    return false;
+   }
+    else if(!checkpsw.test(psw))
+   {
+     $('#chkpsw').html('**Password Format Invalid**');
+     $('#chkpsw').css('color','red');
+     return false;
+   }
+
+   if(!cpsw.match(psw))
+   {
+    $('#chkconfirm').html('**Password Not Match**');
+    $('#chkpsw').css('color','red');
+     return false;
+ 
+   }
+
+       var gender = document.getElementsByName('optradio');
+        var genValue = false;
+
+        for(var i=0; i<gender.length;i++){
+            if(gender[i].checked == true){
+                genValue = true;    
+            }
+        }
+        if(!genValue){
+            //document.getElementById('chkradio').innerHTML = " please select gender";
+             $('#chkradio').html('**Please select gender**');
+             $('#chkradio').css('color','red');
+   
+            return false;
+        }
+    
+
+    /*CHECK FOR INTEREST */
+        var interest = document.getElementsByName('check1');
+        var intValue = false;
+
+        for(var i=0; i<interest.length;i++)
+        {
+          if(interest[i].checked == true){
+            intValue = true;
+          }
+        }
+        if(!intValue){
+          $('#chkbox').html('**Please select One**');
+          $('#chkbox').css('color','red');
+         // document.getElementById('chkbox').innerHTML = "please select Interest";
+          return false;
+        }
+
+       if(abt == "")
+   {
+   $('#chkabout').html('**Please Fill About **');
+    $('#chkabout').css('color','red');
+    return false;
+   }
+    else if(!check_text.test(abt))
+   {
+     $('#chkabout').html('**Alphabet only**');
+     $('#chkabout').css('color','red');
+     return false;
+   }
+
+           
+  
+   });
+
+  });
+</script>
